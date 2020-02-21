@@ -1,0 +1,19 @@
+{
+  "name": "tokiehn/328/pets5",
+  "authors": [
+    {
+      "name": "Brian Kiehn",
+      "email": "bkiehn@mail.greenriver.edu"
+    },
+    {
+      "name": "Laxmi Kandel",
+      "email": "lkandel@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["classes/", "controller/"]
+  }
+}
