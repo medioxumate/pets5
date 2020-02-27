@@ -13,11 +13,14 @@ session_start();
 //create instance of the base class
 $f3 = Base::instance();
 
+
 //Set debug level
 $f3->set('DEBUG', 3);
 
 $f3->set('colors', array('pink', 'green', 'blue'));
 $controller = new PetController($f3);
+$db = new Database();
+
 
 //define a default route
 $f3->route('GET /', function () {
@@ -30,13 +33,14 @@ $f3->route('GET|POST /order', function ($f3) {
     $GLOBALS['controller']->order1($f3);
 });
 
-$f3->route('GET|POST /order2',
-    function ($f3) {
+$f3->route('GET|POST /order2', function ($f3) {
         $GLOBALS['controller']->order2($f3);
     });
 
-$f3->route('GET /results', function () {
+$f3->route('GET|POST /results', function () {
     $GLOBALS['controller']->results();
+    session_destroy();
+    $_SESSION = array();
 });
 
 //run fat free

@@ -67,6 +67,19 @@ class PetController
 
     public function results()
     {
+       //Instantiate a pet object
+        $pet = new Pet($_SESSION['animal']->getName(),$_SESSION['animal']->getType(),
+            $_SESSION['animal']->getColor());
+        $GLOBALS['db']->writePet($pet);
+        //get all the pet after calling insertion function to get updated pets
+        $pets = $GLOBALS['db']->allPets();
+        $this->_f3->set('pet', $pets);
+
+
+//        $GLOBALS['db']->writePet($_SESSION['animal']->getName(),$_SESSION['animal']->getType(),
+//            $_SESSION['animal']->getColor(),$this->_dbh->lastInsertId());
+
+//        $this->_f3->set('pets', $pet);
         $view = new Template();
         echo $view->render('views/results.html');
     }
