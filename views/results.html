@@ -19,6 +19,7 @@
 <check if="{{ @SESSION['animal'] instanceof bat }}">
     <p>{{ @SESSION['animal']->attack() }}</p>
 </check>
+<h2>Pets names colors and types stored in pet table </h2>
 <table>
     <repeat group="{{@pet}}" value="{{@pets}}">
     <p> {{@pets['pet_name']}}
